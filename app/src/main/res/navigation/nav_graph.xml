@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.androidtest.MenuFragment"
+        android:label="@string/menu_screen_title"
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/action_menuFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_gameFragment"
+            app:destination="@id/gameFragment"
+            app:popUpToInclusive="false">
+            <argument
+                android:name="startNumber"
+                android:defaultValue="0" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.androidtest.AboutFragment"
+        android:label="@string/about_screen_title"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.androidtest.GameFragment"
+        android:label="@string/game_screen_title"
+        tools:layout="@layout/fragment_game" >
+        <argument
+            android:name="startNumber"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+</navigation>
